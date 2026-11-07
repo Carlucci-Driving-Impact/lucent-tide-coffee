@@ -11,28 +11,28 @@
 
   <style>
     :root {
-      --dark-slate-blue: #1E3338;
-      --slate-blue: #32555C;
-      --slate-blue-light: #4E7780;
-      --slate-soft-border: rgba(50, 85, 92, 0.2);
-      --slate-pill-bg: #EAF1F3;
-      --page-bg: #F5F8F8;
+      --dark-slate-blue: #1A2E33;
+      --slate-blue: #2D4C53;
+      --slate-light: #4A737C;
+      --slate-soft-border: rgba(45, 76, 83, 0.2);
+      --slate-pill-bg: #EBF1F2;
+      --page-bg: #F4F7F7;
       --card-white: #FFFFFF;
-      --text-main: #18282B;
-      --text-muted: #5C7479;
-      --shadow-sm: 0 4px 18px rgba(30, 51, 56, 0.08);
-      --shadow-md: 0 10px 30px rgba(30, 51, 56, 0.12);
+      --text-main: #142226;
+      --text-muted: #577075;
+      --shadow: 0 4px 18px rgba(26, 46, 51, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--page-bg);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -55,10 +55,7 @@
       font-size: 1.35rem;
       font-weight: 600;
     }
-    .brand svg {
-      width: 32px; height: 32px;
-      stroke: var(--dark-slate-blue);
-    }
+    .brand svg { width: 32px; height: 32px; stroke: var(--dark-slate-blue); }
     .google-pill {
       background: var(--slate-pill-bg);
       border: 1px solid var(--slate-soft-border);
@@ -70,34 +67,32 @@
       text-decoration: none;
     }
 
-    /* Living Hero with Sunrise Video Backdrop */
+    /* Living Sunrise Hero with CSS Ocean Shimmer */
     .hero {
       position: relative;
-      height: 75svh;
-      min-height: 500px;
+      height: 80svh;
+      min-height: 520px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 3rem 1.5rem 4rem;
       overflow: hidden;
-      background-color: var(--dark-slate-blue);
+      background: linear-gradient(180deg, #1A2E33 0%, #2D4C53 100%);
     }
-    .hero video {
+    .hero-video-iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
+      top: 50%; left: 50%;
+      width: 130vw; height: 130vh;
+      min-width: 100%; min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
       z-index: 1;
+      border: none;
     }
-    .hero-scrim {
+    .hero-shimmer-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(30, 51, 56, 0.25) 0%,
-        rgba(30, 51, 56, 0.55) 50%,
-        rgba(30, 51, 56, 0.92) 100%
-      );
+      background: radial-gradient(circle at 50% 30%, rgba(74, 115, 124, 0.45) 0%, rgba(26, 46, 51, 0.85) 75%);
       z-index: 2;
     }
     .hero-inner {
@@ -109,7 +104,7 @@
     .badge {
       display: inline-block;
       background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       color: #FFFFFF;
       padding: 0.35rem 0.9rem;
       border-radius: 40px;
@@ -128,17 +123,13 @@
       font-weight: 400;
     }
     .hero p {
-      color: rgba(255, 255, 255, 0.95);
+      color: rgba(255, 255, 255, 0.92);
       font-size: 1.05rem;
       margin-bottom: 1.8rem;
       font-weight: 300;
-      max-width: 520px;
+      max-width: 500px;
     }
-    .hero-btns {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
+    .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
     .btn-slate-solid {
       background: var(--dark-slate-blue);
       color: #FFFFFF;
@@ -161,19 +152,19 @@
       backdrop-filter: blur(8px);
     }
 
-    /* Photo Showcase */
-    .gallery-section {
-      padding: 3.5rem 1.3rem;
-      max-width: 1100px;
+    /* Menu Section */
+    .menu-wrap {
+      padding: 4rem 1.3rem 2rem;
+      max-width: 860px;
       margin: 0 auto;
     }
     .section-head {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
     }
     .section-head h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       color: var(--dark-slate-blue);
       margin-bottom: 0.3rem;
     }
@@ -181,43 +172,80 @@
       color: var(--text-muted);
       font-size: 0.95rem;
     }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .photo-card {
-      background: var(--card-white);
-      border-radius: 20px;
-      overflow: hidden;
+    .menu-card {
+      background: #FFFFFF;
       border: 1px solid var(--slate-soft-border);
-      box-shadow: var(--shadow-sm);
+      border-radius: 20px;
+      padding: 1.8rem;
+      margin-bottom: 1.8rem;
+      box-shadow: var(--shadow);
     }
-    .photo-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-desc {
-      padding: 1.2rem;
-    }
-    .photo-desc h4 {
+    .menu-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
       color: var(--dark-slate-blue);
-      font-size: 1.05rem;
-      margin-bottom: 0.2rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--slate-soft-border);
+      padding-bottom: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
-    .photo-desc span {
+    .menu-card h3 span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .drink-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--slate-soft-border);
+    }
+    .drink-row:last-child { border-bottom: none; }
+    .drink-name { font-weight: 500; font-size: 0.95rem; }
+    .drink-price { font-weight: 600; color: var(--slate-blue); font-size: 0.9rem; }
+
+    /* Syrups */
+    .syrup-wrap {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-soft-border);
+      border-radius: 20px;
+      padding: 1.6rem;
+      margin-bottom: 3.5rem;
+      box-shadow: var(--shadow);
+    }
+    .syrup-wrap h4 {
+      font-size: 1.05rem;
+      color: var(--dark-slate-blue);
+      margin-bottom: 0.3rem;
+    }
+    .syrup-wrap p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .syrup-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .syrup-pill {
+      background: var(--slate-pill-bg);
+      color: var(--dark-slate-blue);
+      padding: 0.3rem 0.75rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--slate-soft-border);
     }
 
-    /* Reviews Section */
+    /* Google Reviews Section (NOW AT THE BOTTOM) */
     .reviews-section {
-      padding: 3.5rem 1.3rem;
-      background: var(--card-white);
+      padding: 4rem 1.3rem 3rem;
+      background: #FFFFFF;
       border-top: 1px solid var(--slate-soft-border);
       border-bottom: 1px solid var(--slate-soft-border);
     }
@@ -239,9 +267,9 @@
       scroll-snap-align: center;
       background: var(--page-bg);
       border: 1px solid var(--slate-soft-border);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 1.6rem;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow);
     }
     .review-stars {
       color: var(--dark-slate-blue);
@@ -286,95 +314,20 @@
     .btn-google {
       background: var(--slate-blue);
       color: #FFFFFF;
-      padding: 0.65rem 1.4rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
     }
     .btn-google-outline {
       border: 1px solid var(--slate-blue);
       color: var(--slate-blue);
-      padding: 0.65rem 1.4rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
-    }
-
-    /* Menu Section */
-    .menu-wrap {
-      padding: 3.5rem 1.3rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .menu-card {
-      background: #FFFFFF;
-      border: 1px solid var(--slate-soft-border);
-      border-radius: 18px;
-      padding: 1.8rem;
-      margin-bottom: 1.8rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .menu-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      color: var(--dark-slate-blue);
-      margin-bottom: 1.2rem;
-      border-bottom: 1px solid var(--slate-soft-border);
-      padding-bottom: 0.6rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .menu-card h3 span {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .drink-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px dashed var(--slate-soft-border);
-    }
-    .drink-row:last-child { border-bottom: none; }
-    .drink-name { font-weight: 500; font-size: 0.95rem; }
-    .drink-price { font-weight: 600; color: var(--slate-blue); font-size: 0.9rem; }
-
-    /* Syrups */
-    .syrup-wrap {
-      background: #FFFFFF;
-      border: 1px solid var(--slate-soft-border);
-      border-radius: 18px;
-      padding: 1.6rem;
-      margin-bottom: 2rem;
-    }
-    .syrup-wrap h4 {
-      font-size: 1rem;
-      color: var(--dark-slate-blue);
-      margin-bottom: 0.3rem;
-    }
-    .syrup-wrap p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .syrup-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-    .syrup-pill {
-      background: var(--slate-pill-bg);
-      color: var(--dark-slate-blue);
-      padding: 0.3rem 0.75rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      border: 1px solid var(--slate-soft-border);
     }
 
     /* Fixed Bottom Bar */
@@ -432,11 +385,15 @@
     </a>
   </header>
 
+  <!-- LIVING HERO: Sunrise Ocean Video Stream -->
   <section class="hero">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-sun-setting-over-the-ocean-waves-41505-large.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-scrim"></div>
+    <iframe 
+      class="hero-video-iframe" 
+      src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&loop=1&playlist=jfKfPfyJRdk&controls=0&showinfo=0&autohide=1&modestbranding=1&playsinline=1&enablejsapi=1" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen
+    ></iframe>
+    <div class="hero-shimmer-bg"></div>
 
     <div class="hero-inner">
       <div class="badge">Sand Key Waterfront &bull; Clearwater Beach</div>
@@ -452,40 +409,55 @@
     </div>
   </section>
 
-  <!-- PHOTO SHOWCASE: Direct Photo Gallery Cards -->
-  <section class="gallery-section">
+  <!-- MENU SECTION (NOW PLACED IMMEDIATELY UNDER HERO) -->
+  <section id="menu" class="menu-wrap">
     <div class="section-head">
-      <h2>The Lucent Tide Atmosphere</h2>
-      <p>Fresh waterfront air, artisanal roasts, and custom-crafted merchandise.</p>
+      <h2>Coffee & Tea Menu</h2>
+      <p>Every beverage extracted to recipe using whole beans and premium loose leaves.</p>
     </div>
 
-    <div class="photo-grid">
-      <div class="photo-card">
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Lucent Tide Morning Waterfront Coffee" />
-        <div class="photo-desc">
-          <h4>Waterfront Morning Brew</h4>
-          <span>Ceramic roasts on the Sand Key Boardwalk</span>
-        </div>
-      </div>
+    <div class="menu-card">
+      <h3>Coffee & Espresso <span>Hot / Iced</span></h3>
+      <div class="drink-row"><span class="drink-name">Drip Coffee</span><span class="drink-price">$4.45 - $5.45</span></div>
+      <div class="drink-row"><span class="drink-name">Americano</span><span class="drink-price">$4.45 - $5.45</span></div>
+      <div class="drink-row"><span class="drink-name">Latte</span><span class="drink-price">$5.45 - $6.45</span></div>
+      <div class="drink-row"><span class="drink-name">Mocha</span><span class="drink-price">$6.25 - $7.25</span></div>
+      <div class="drink-row"><span class="drink-name">Café con Leche</span><span class="drink-price">$4.95 - $5.95</span></div>
+      <div class="drink-row"><span class="drink-name">Cortado</span><span class="drink-price">$4.95</span></div>
+      <div class="drink-row"><span class="drink-name">House Cold Brew</span><span class="drink-price">$5.95 - $7.95</span></div>
+      <div class="drink-row"><span class="drink-name">Nitro Cold Brew</span><span class="drink-price">$6.70 - $8.70</span></div>
+    </div>
 
-      <div class="photo-card">
-        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80" alt="Layered Artisan Iced Coffee" />
-        <div class="photo-desc">
-          <h4>Layered Pumpkin Macchiato</h4>
-          <span>Artisan pumpkin & double espresso over crystal ice</span>
-        </div>
-      </div>
+    <div class="menu-card">
+      <h3>Rishi Organic Teas <span>Loose-Leaf</span></h3>
+      <div class="drink-row"><span class="drink-name">Earl Grey &bull; Emperor's Pu-Erh</span><span class="drink-price">Black</span></div>
+      <div class="drink-row"><span class="drink-name">Jasmine Green &bull; Gunpowder Green</span><span class="drink-price">Green</span></div>
+      <div class="drink-row"><span class="drink-name">Moroccan Mint &bull; Chamomile Lemon</span><span class="drink-price">Herbal</span></div>
+      <div class="drink-row"><span class="drink-name">Sparkling Blueberry Rooibos</span><span class="drink-price">Botanical</span></div>
+      <div class="drink-row"><span class="drink-name">Matcha Maca Latte</span><span class="drink-price">Specialty</span></div>
+    </div>
 
-      <div class="photo-card">
-        <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80" alt="Waterfront Calm Sunrise Tide" />
-        <div class="photo-desc">
-          <h4>Golden Hour Tide</h4>
-          <span>Front-row seats to the calm Florida morning tide</span>
-        </div>
+    <div class="syrup-wrap">
+      <h4>House Syrups & Flavors</h4>
+      <p>Custom additions for hot and iced beverages.</p>
+      <div class="syrup-grid">
+        <span class="syrup-pill">Almond*</span>
+        <span class="syrup-pill">Blackberry</span>
+        <span class="syrup-pill">Blood Orange</span>
+        <span class="syrup-pill">Brown Butter Toffee</span>
+        <span class="syrup-pill">Butter Pecan</span>
+        <span class="syrup-pill">Caramel*</span>
+        <span class="syrup-pill">Cinnamon</span>
+        <span class="syrup-pill">Coconut*</span>
+        <span class="syrup-pill">Hazelnut*</span>
+        <span class="syrup-pill">Lavender</span>
+        <span class="syrup-pill">Vanilla*</span>
+        <span class="syrup-pill">Toffee Nut</span>
       </div>
     </div>
   </section>
 
+  <!-- GOOGLE REVIEWS SECTION (AT THE BOTTOM OF THE PAGE) -->
   <section id="reviews" class="reviews-section">
     <div class="section-head">
       <h2>Guest Reviews</h2>
@@ -537,53 +509,6 @@
       <a href="https://search.google.com/local/writereview?placeid=ChIJr89qWk3xw4gRJiSAlVJzQRc" target="_blank" rel="noopener noreferrer" class="btn-google-outline">
         Leave a Review
       </a>
-    </div>
-  </section>
-
-  <section id="menu" class="menu-wrap">
-    <div class="section-head">
-      <h2>Coffee & Tea Menu</h2>
-      <p>Every beverage extracted to recipe using whole beans and premium loose leaves.</p>
-    </div>
-
-    <div class="menu-card">
-      <h3>Coffee & Espresso <span>Hot / Iced</span></h3>
-      <div class="drink-row"><span class="drink-name">Drip Coffee</span><span class="drink-price">$4.45 - $5.45</span></div>
-      <div class="drink-row"><span class="drink-name">Americano</span><span class="drink-price">$4.45 - $5.45</span></div>
-      <div class="drink-row"><span class="drink-name">Latte</span><span class="drink-price">$5.45 - $6.45</span></div>
-      <div class="drink-row"><span class="drink-name">Mocha</span><span class="drink-price">$6.25 - $7.25</span></div>
-      <div class="drink-row"><span class="drink-name">Café con Leche</span><span class="drink-price">$4.95 - $5.95</span></div>
-      <div class="drink-row"><span class="drink-name">Cortado</span><span class="drink-price">$4.95</span></div>
-      <div class="drink-row"><span class="drink-name">House Cold Brew</span><span class="drink-price">$5.95 - $7.95</span></div>
-      <div class="drink-row"><span class="drink-name">Nitro Cold Brew</span><span class="drink-price">$6.70 - $8.70</span></div>
-    </div>
-
-    <div class="menu-card">
-      <h3>Rishi Organic Teas <span>Loose-Leaf</span></h3>
-      <div class="drink-row"><span class="drink-name">Earl Grey &bull; Emperor's Pu-Erh</span><span class="drink-price">Black</span></div>
-      <div class="drink-row"><span class="drink-name">Jasmine Green &bull; Gunpowder Green</span><span class="drink-price">Green</span></div>
-      <div class="drink-row"><span class="drink-name">Moroccan Mint &bull; Chamomile Lemon</span><span class="drink-price">Herbal</span></div>
-      <div class="drink-row"><span class="drink-name">Sparkling Blueberry Rooibos</span><span class="drink-price">Botanical</span></div>
-      <div class="drink-row"><span class="drink-name">Matcha Maca Latte</span><span class="drink-price">Specialty</span></div>
-    </div>
-
-    <div class="syrup-wrap">
-      <h4>House Syrups & Flavors</h4>
-      <p>Custom additions for hot and iced beverages.</p>
-      <div class="syrup-grid">
-        <span class="syrup-pill">Almond*</span>
-        <span class="syrup-pill">Blackberry</span>
-        <span class="syrup-pill">Blood Orange</span>
-        <span class="syrup-pill">Brown Butter Toffee</span>
-        <span class="syrup-pill">Butter Pecan</span>
-        <span class="syrup-pill">Caramel*</span>
-        <span class="syrup-pill">Cinnamon</span>
-        <span class="syrup-pill">Coconut*</span>
-        <span class="syrup-pill">Hazelnut*</span>
-        <span class="syrup-pill">Lavender</span>
-        <span class="syrup-pill">Vanilla*</span>
-        <span class="syrup-pill">Toffee Nut</span>
-      </div>
     </div>
   </section>
 
