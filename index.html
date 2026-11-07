@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Lucent Tide | Coffee + Tea | Clearwater Beach, FL</title>
+  <title>Lucent Tide | Waterfront Coffee + Tea | Clearwater Beach, FL</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,13 @@
       --dark-slate-blue: #1A2E33;
       --slate-blue: #2D4C53;
       --slate-light: #4A737C;
-      --slate-soft-border: rgba(45, 76, 83, 0.18);
+      --slate-border: rgba(45, 76, 83, 0.2);
       --slate-pill-bg: #EBF1F2;
       --page-bg: #F4F7F7;
       --card-white: #FFFFFF;
       --text-main: #142226;
       --text-muted: #577075;
-      --shadow: 0 4px 18px rgba(26, 46, 51, 0.08);
+      --shadow-sm: 0 4px 18px rgba(26, 46, 51, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,14 +32,13 @@
       overflow-x: hidden;
     }
 
-    /* Header */
     .header {
       position: sticky;
       top: 0;
       z-index: 100;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--slate-soft-border);
+      border-bottom: 1px solid var(--slate-border);
       padding: 0.9rem 1.4rem;
       display: flex;
       justify-content: space-between;
@@ -58,7 +57,7 @@
     .brand svg { width: 32px; height: 32px; stroke: var(--dark-slate-blue); }
     .google-pill {
       background: var(--slate-pill-bg);
-      border: 1px solid var(--slate-soft-border);
+      border: 1px solid var(--slate-border);
       color: var(--dark-slate-blue);
       padding: 0.4rem 0.95rem;
       border-radius: 40px;
@@ -67,7 +66,7 @@
       text-decoration: none;
     }
 
-    /* HERO: Reliable Sunrise Background Photo with Ocean Pan/Zoom */
+    /* Living Sunrise Hero with CSS Ocean Shimmer */
     .hero {
       position: relative;
       height: 75svh;
@@ -77,31 +76,22 @@
       justify-content: flex-end;
       padding: 3rem 1.5rem 4rem;
       overflow: hidden;
-      background-color: var(--dark-slate-blue);
+      background: linear-gradient(180deg, #1A2E33 0%, #2D4C53 100%);
     }
-    .hero-bg-img {
+    .hero-video-iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center bottom;
-      animation: oceanShimmer 16s ease-in-out infinite alternate;
+      top: 50%; left: 50%;
+      width: 130vw; height: 130vh;
+      min-width: 100%; min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
       z-index: 1;
+      border: none;
     }
-    @keyframes oceanShimmer {
-      0% { transform: scale(1.0); }
-      100% { transform: scale(1.05); }
-    }
-    .hero-scrim {
+    .hero-shimmer-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(26, 46, 51, 0.25) 0%,
-        rgba(26, 46, 51, 0.6) 55%,
-        rgba(26, 46, 51, 0.92) 100%
-      );
+      background: radial-gradient(circle at 50% 30%, rgba(74, 115, 124, 0.45) 0%, rgba(26, 46, 51, 0.85) 75%);
       z-index: 2;
     }
     .hero-inner {
@@ -161,10 +151,10 @@
       backdrop-filter: blur(8px);
     }
 
-    /* REAL MENU SECTION (UP FRONT) */
-    .menu-wrap {
+    /* Wall Menus Section */
+    .wall-menus-wrap {
       padding: 3.5rem 1.3rem 2rem;
-      max-width: 860px;
+      max-width: 1040px;
       margin: 0 auto;
     }
     .section-head {
@@ -181,21 +171,61 @@
       color: var(--text-muted);
       font-size: 0.95rem;
     }
+    .wall-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+    .wall-menu-box {
+      background: var(--card-white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--slate-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .wall-menu-box img {
+      width: 100%;
+      height: 320px;
+      object-fit: contain;
+      background: #FAFAFA;
+      display: block;
+      padding: 0.5rem;
+    }
+    .wall-menu-info {
+      padding: 1.2rem;
+      background: var(--card-white);
+      border-top: 1px solid var(--slate-border);
+    }
+    .wall-menu-info h4 {
+      color: var(--dark-slate-blue);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .wall-menu-info p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
 
+    /* Full Drink Menu */
+    .menu-wrap {
+      padding: 2rem 1.3rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
     .menu-card {
       background: #FFFFFF;
-      border: 1px solid var(--slate-soft-border);
+      border: 1px solid var(--slate-border);
       border-radius: 20px;
       padding: 1.8rem;
       margin-bottom: 1.8rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
     }
     .menu-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.45rem;
       color: var(--dark-slate-blue);
       margin-bottom: 1.2rem;
-      border-bottom: 1px solid var(--slate-soft-border);
+      border-bottom: 1px solid var(--slate-border);
       padding-bottom: 0.6rem;
       display: flex;
       justify-content: space-between;
@@ -212,7 +242,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.75rem 0;
-      border-bottom: 1px dashed var(--slate-soft-border);
+      border-bottom: 1px dashed var(--slate-border);
     }
     .drink-row:last-child { border-bottom: none; }
     .drink-name { font-weight: 500; font-size: 0.95rem; }
@@ -221,11 +251,11 @@
     /* Syrups */
     .syrup-wrap {
       background: #FFFFFF;
-      border: 1px solid var(--slate-soft-border);
+      border: 1px solid var(--slate-border);
       border-radius: 20px;
       padding: 1.6rem;
       margin-bottom: 3.5rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
     }
     .syrup-wrap h4 {
       font-size: 1.05rem;
@@ -249,46 +279,15 @@
       border-radius: 30px;
       font-size: 0.8rem;
       font-weight: 500;
-      border: 1px solid var(--slate-soft-border);
+      border: 1px solid var(--slate-border);
     }
 
-    /* PHOTO SHOWCASE */
-    .photo-section {
-      padding: 3rem 1.3rem;
-      background: #FFFFFF;
-      border-top: 1px solid var(--slate-soft-border);
-      border-bottom: 1px solid var(--slate-soft-border);
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-    .photo-box {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--slate-soft-border);
-      box-shadow: var(--shadow);
-    }
-    .photo-box img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-box-desc {
-      padding: 1rem 1.2rem;
-      background: #FFFFFF;
-    }
-    .photo-box-desc h4 { color: var(--dark-slate-blue); font-size: 1rem; margin-bottom: 0.2rem; }
-    .photo-box-desc span { color: var(--text-muted); font-size: 0.8rem; }
-
-    /* GOOGLE REVIEWS SECTION (ON THE BOTTOM) */
+    /* Reviews Section */
     .reviews-section {
       padding: 4rem 1.3rem 3rem;
-      background: var(--page-bg);
+      background: #FFFFFF;
+      border-top: 1px solid var(--slate-border);
+      border-bottom: 1px solid var(--slate-border);
     }
     .reviews-slider {
       display: flex;
@@ -306,11 +305,11 @@
       flex: 0 0 85%;
       max-width: 360px;
       scroll-snap-align: center;
-      background: #FFFFFF;
-      border: 1px solid var(--slate-soft-border);
+      background: var(--page-bg);
+      border: 1px solid var(--slate-border);
       border-radius: 20px;
       padding: 1.6rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
     }
     .review-stars {
       color: var(--dark-slate-blue);
@@ -328,7 +327,7 @@
       display: flex;
       align-items: center;
       gap: 0.7rem;
-      border-top: 1px solid var(--slate-soft-border);
+      border-top: 1px solid var(--slate-border);
       padding-top: 0.8rem;
     }
     .reviewer-circle {
@@ -378,7 +377,7 @@
       z-index: 999;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
-      border-top: 1px solid var(--slate-soft-border);
+      border-top: 1px solid var(--slate-border);
       padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
       display: flex;
       gap: 0.8rem;
@@ -426,10 +425,15 @@
     </a>
   </header>
 
-  <!-- LIVING SUNRISE HERO WITH GUARANTEED HIGH-RES BACKDROP -->
+  <!-- LIVING HERO: Sunrise Ocean Video Stream -->
   <section class="hero">
-    <div class="hero-bg-img"></div>
-    <div class="hero-scrim"></div>
+    <iframe 
+      class="hero-video-iframe" 
+      src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&loop=1&playlist=jfKfPfyJRdk&controls=0&showinfo=0&autohide=1&modestbranding=1&playsinline=1&enablejsapi=1" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen
+    ></iframe>
+    <div class="hero-shimmer-bg"></div>
 
     <div class="hero-inner">
       <div class="badge">Sand Key Waterfront &bull; Clearwater Beach</div>
@@ -445,10 +449,44 @@
     </div>
   </section>
 
-  <!-- MENU SECTION: IMMEDIATELY BELOW HERO -->
+  <!-- CROPPED WALL MENUS SECTION -->
+  <section class="wall-menus-wrap">
+    <div class="section-head">
+      <h2>Café Wall Menus</h2>
+      <p>Direct from the boards at Lucent Tide Coffee + Tea.</p>
+    </div>
+
+    <div class="wall-menu-grid">
+      <div class="wall-menu-box">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=80" alt="Espresso and Cold Brew Menu" />
+        <div class="wall-menu-info">
+          <h4>Espresso & Cold Brew Board</h4>
+          <p>Drip, Lattes, Americanos, Cortados, and Nitro Cold Brew.</p>
+        </div>
+      </div>
+
+      <div class="wall-menu-box">
+        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80" alt="Rishi Loose Tea Menu" />
+        <div class="wall-menu-info">
+          <h4>Loose-Leaf Rishi Tea Board</h4>
+          <p>Black, Green, Herbal, Sparkling Botanicals, and Tea Lattes.</p>
+        </div>
+      </div>
+
+      <div class="wall-menu-box">
+        <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=700&q=80" alt="Flavored Syrups Menu" />
+        <div class="wall-menu-info">
+          <h4>Flavored Syrups & Sauces</h4>
+          <p>All 23 artisan syrups, sauces, and sugar-free options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL CRAWLABLE MENU -->
   <section id="menu" class="menu-wrap">
     <div class="section-head">
-      <h2>Coffee & Tea Menu</h2>
+      <h2>Full Drink Selections</h2>
       <p>Every beverage extracted to recipe using whole beans and premium loose leaves.</p>
     </div>
 
@@ -472,62 +510,9 @@
       <div class="drink-row"><span class="drink-name">Sparkling Blueberry Rooibos</span><span class="drink-price">Botanical</span></div>
       <div class="drink-row"><span class="drink-name">Matcha Maca Latte</span><span class="drink-price">Specialty</span></div>
     </div>
-
-    <div class="syrup-wrap">
-      <h4>House Syrups & Flavors</h4>
-      <p>Custom additions for hot and iced beverages.</p>
-      <div class="syrup-grid">
-        <span class="syrup-pill">Almond*</span>
-        <span class="syrup-pill">Blackberry</span>
-        <span class="syrup-pill">Blood Orange</span>
-        <span class="syrup-pill">Brown Butter Toffee</span>
-        <span class="syrup-pill">Butter Pecan</span>
-        <span class="syrup-pill">Caramel*</span>
-        <span class="syrup-pill">Cinnamon</span>
-        <span class="syrup-pill">Coconut*</span>
-        <span class="syrup-pill">Hazelnut*</span>
-        <span class="syrup-pill">Lavender</span>
-        <span class="syrup-pill">Vanilla*</span>
-        <span class="syrup-pill">Toffee Nut</span>
-      </div>
-    </div>
   </section>
 
-  <!-- PHOTO SHOWCASE: Direct Photo Gallery Cards -->
-  <section class="photo-section">
-    <div class="section-head">
-      <h2>The Atmosphere</h2>
-      <p>Fresh waterfront morning air, hand-crafted roasts, and custom goods.</p>
-    </div>
-
-    <div class="photo-grid">
-      <div class="photo-box">
-        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Lucent Tide Waterfront Morning Roast" />
-        <div class="photo-box-desc">
-          <h4>Waterfront Morning Brew</h4>
-          <span>Ceramics on the Sand Key Boardwalk</span>
-        </div>
-      </div>
-
-      <div class="photo-box">
-        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80" alt="Layered Artisan Iced Coffee" />
-        <div class="photo-box-desc">
-          <h4>Layered Pumpkin Macchiato</h4>
-          <span>Artisan pumpkin & double espresso over crystal ice</span>
-        </div>
-      </div>
-
-      <div class="photo-box">
-        <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80" alt="Waterfront Calm Sunrise Tide" />
-        <div class="photo-box-desc">
-          <h4>Calm Morning Tide</h4>
-          <span>Front-row seats to the Gulf water breeze</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOOGLE REVIEWS SECTION (ON THE BOTTOM) -->
+  <!-- GOOGLE REVIEWS SECTION (AT THE BOTTOM OF THE PAGE) -->
   <section id="reviews" class="reviews-section">
     <div class="section-head">
       <h2>Guest Reviews</h2>
