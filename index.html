@@ -3,113 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Lucent Tide | Coffee + Tea | Clearwater Beach</title>
+  <title>Lucent Tide | Coffee + Tea | Clearwater Beach, FL</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* STRICT SLATE BLUE BRAND PALETTE - NO GOLD, NO YELLOWS */
     :root {
-      --dark-slate-blue: #23353A;
-      --slate-blue: #3E5A61;
-      --slate-light: #5B7B83;
-      --slate-soft-border: rgba(62, 90, 97, 0.22);
-      --slate-bg-card: #FFFFFF;
-      --slate-page-bg: #F5F7F8;
-      --slate-pill-bg: #EAF0F2;
-      --text-dark: #1A272A;
-      --text-muted: #5A7075;
-      --white: #FFFFFF;
-      --shadow-subtle: 0 4px 20px rgba(35, 53, 58, 0.08);
-      --shadow-hover: 0 10px 30px rgba(35, 53, 58, 0.14);
+      --dark-slate-blue: #1E3338;
+      --slate-blue: #32555C;
+      --slate-blue-light: #4E7780;
+      --slate-soft-border: rgba(50, 85, 92, 0.18);
+      --slate-pill-bg: #EAF1F3;
+      --page-bg: #F7FAF9;
+      --card-white: #FFFFFF;
+      --text-main: #18282B;
+      --text-muted: #5C7479;
+      --shadow: 0 4px 18px rgba(30, 51, 56, 0.08);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html, body {
-      background-color: var(--slate-page-bg);
-      color: var(--text-dark);
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--page-bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
     }
 
-    /* Clean Slate Navigation */
-    .top-header {
+    /* Clean Slate Header */
+    .header {
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-soft-border);
       padding: 0.9rem 1.4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--slate-soft-border);
     }
-    .brand-lockup {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.6rem;
       text-decoration: none;
       color: var(--dark-slate-blue);
-    }
-    .brand-svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--dark-slate-blue);
-    }
-    .brand-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.35rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
-      color: var(--dark-slate-blue);
     }
-
-    .google-rating-pill {
+    .brand svg {
+      width: 32px; height: 32px;
+      stroke: var(--dark-slate-blue);
+    }
+    .google-pill {
       background: var(--slate-pill-bg);
       border: 1px solid var(--slate-soft-border);
       color: var(--dark-slate-blue);
-      padding: 0.4rem 0.9rem;
-      border-radius: 50px;
-      font-size: 0.78rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
-    /* Hero with Natural Water Video */
+    /* Living Hero with Reliable Mobile Video Loop */
     .hero {
       position: relative;
-      height: 72svh;
+      height: 70svh;
       min-height: 480px;
-      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 0 1.5rem 3.5rem;
       overflow: hidden;
+      background-color: var(--dark-slate-blue);
     }
-    .hero-video-bg {
+    .hero video {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       z-index: 1;
     }
-    .hero-gradient-scrim {
+    .hero-scrim {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(35, 53, 58, 0.25) 0%,
-        rgba(35, 53, 58, 0.55) 50%,
-        rgba(35, 53, 58, 0.88) 100%
+        rgba(30, 51, 56, 0.2) 0%,
+        rgba(30, 51, 56, 0.6) 55%,
+        rgba(30, 51, 56, 0.92) 100%
       );
       z-index: 2;
     }
@@ -117,80 +103,65 @@
       position: relative;
       z-index: 3;
       max-width: 600px;
-      color: var(--white);
+      color: #FFFFFF;
     }
-    .badge-tag {
+    .badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--white);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
       padding: 0.3rem 0.85rem;
-      border-radius: 50px;
+      border-radius: 40px;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 0.8rem;
-      backdrop-filter: blur(8px);
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.3rem, 7vw, 3.8rem);
-      line-height: 1.12;
+      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      line-height: 1.15;
       margin-bottom: 0.6rem;
       font-weight: 400;
-      color: var(--white);
     }
     .hero p {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.92);
       font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.5rem;
       font-weight: 300;
     }
-
-    /* Strict Slate Blue Buttons */
-    .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .hero-btns {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
     .btn-slate-solid {
-      flex: 1;
-      min-width: 135px;
-      padding: 0.85rem 1.4rem;
-      border-radius: 50px;
       background: var(--dark-slate-blue);
-      color: var(--white);
+      color: #FFFFFF;
+      padding: 0.85rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      text-align: center;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
     .btn-slate-glass {
-      flex: 1;
-      min-width: 135px;
-      padding: 0.85rem 1.4rem;
-      border-radius: 50px;
       background: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--white);
+      color: #FFFFFF;
+      padding: 0.85rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      text-align: center;
-      text-decoration: none;
-      backdrop-filter: blur(10px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      backdrop-filter: blur(8px);
     }
 
-    /* Google Reviews Section in Crisp Slate Style */
+    /* Google Reviews Section */
     .reviews-section {
       padding: 3.5rem 1.3rem;
-      background: var(--white);
+      background: #FFFFFF;
       border-bottom: 1px solid var(--slate-soft-border);
     }
     .section-head {
@@ -201,11 +172,11 @@
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       color: var(--dark-slate-blue);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
     .section-head p {
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .reviews-slider {
@@ -223,75 +194,66 @@
       flex: 0 0 85%;
       max-width: 360px;
       scroll-snap-align: center;
-      background: var(--slate-page-bg);
+      background: var(--page-bg);
       border: 1px solid var(--slate-soft-border);
       border-radius: 18px;
-      padding: 1.8rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-subtle);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
     }
     .review-stars {
       color: var(--dark-slate-blue);
       font-size: 1.1rem;
       letter-spacing: 2px;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
     }
     .review-bubble p {
-      font-size: 0.95rem;
-      color: var(--text-dark);
+      font-size: 0.92rem;
       line-height: 1.6;
       font-style: italic;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
     .reviewer-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
       border-top: 1px solid var(--slate-soft-border);
-      padding-top: 0.9rem;
+      padding-top: 0.8rem;
     }
     .reviewer-circle {
-      width: 36px;
-      height: 36px;
+      width: 34px; height: 34px;
       border-radius: 50%;
       background: var(--dark-slate-blue);
-      color: var(--white);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 0.8rem;
     }
-    .reviewer-text h4 { font-size: 0.88rem; color: var(--dark-slate-blue); }
-    .reviewer-text span { font-size: 0.74rem; color: var(--text-muted); }
+    .reviewer-text h4 { font-size: 0.85rem; color: var(--dark-slate-blue); }
+    .reviewer-text span { font-size: 0.72rem; color: var(--text-muted); }
 
-    .google-direct-actions {
+    .google-actions {
       display: flex;
       justify-content: center;
       gap: 0.8rem;
-      margin-top: 2rem;
+      margin-top: 1.8rem;
       flex-wrap: wrap;
     }
-    .btn-google-direct {
+    .btn-google {
       background: var(--slate-blue);
-      color: var(--white);
+      color: #FFFFFF;
       padding: 0.65rem 1.3rem;
-      border-radius: 50px;
+      border-radius: 40px;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
     }
     .btn-google-outline {
-      background: transparent;
       border: 1px solid var(--slate-blue);
       color: var(--slate-blue);
       padding: 0.65rem 1.3rem;
-      border-radius: 50px;
+      border-radius: 40px;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
@@ -300,16 +262,16 @@
     /* Menu Section */
     .menu-wrap {
       padding: 3.5rem 1.3rem;
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
     }
     .menu-card {
-      background: var(--white);
+      background: #FFFFFF;
       border: 1px solid var(--slate-soft-border);
       border-radius: 18px;
       padding: 1.8rem;
       margin-bottom: 1.8rem;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow);
     }
     .menu-card h3 {
       font-family: 'Playfair Display', serif;
@@ -336,12 +298,12 @@
       border-bottom: 1px dashed var(--slate-soft-border);
     }
     .drink-row:last-child { border-bottom: none; }
-    .drink-name { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); }
+    .drink-name { font-weight: 500; font-size: 0.95rem; }
     .drink-price { font-weight: 600; color: var(--slate-blue); font-size: 0.9rem; }
 
-    /* Custom Syrups Pill Bar */
+    /* Syrups */
     .syrup-wrap {
-      background: var(--white);
+      background: #FFFFFF;
       border: 1px solid var(--slate-soft-border);
       border-radius: 18px;
       padding: 1.6rem;
@@ -350,7 +312,7 @@
     .syrup-wrap h4 {
       font-size: 1rem;
       color: var(--dark-slate-blue);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
     .syrup-wrap p {
       font-size: 0.8rem;
@@ -372,14 +334,13 @@
       border: 1px solid var(--slate-soft-border);
     }
 
-    /* Fixed Thumb Zone Bar */
-    .bottom-mobile-bar {
+    /* Fixed Bottom Bar */
+    .bottom-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
       z-index: 999;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       border-top: 1px solid var(--slate-soft-border);
       padding: 0.75rem 1.25rem calc(0.75rem + env(safe-area-inset-bottom));
       display: flex;
@@ -388,74 +349,58 @@
     .bar-btn-solid {
       flex: 1.2;
       background: var(--dark-slate-blue);
-      color: var(--white);
-      border-radius: 50px;
+      color: #FFFFFF;
+      border-radius: 40px;
       padding: 0.75rem;
       font-weight: 600;
       font-size: 0.88rem;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      text-align: center;
     }
     .bar-btn-outline {
       flex: 1;
-      background: transparent;
       border: 1px solid var(--slate-blue);
       color: var(--dark-slate-blue);
-      border-radius: 50px;
+      border-radius: 40px;
       padding: 0.75rem;
       font-weight: 600;
       font-size: 0.88rem;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <header class="top-header">
-    <a href="#" class="brand-lockup">
-      <svg class="brand-svg" viewBox="0 0 100 80" fill="none" stroke-width="4" stroke-linecap="round">
+  <header class="header">
+    <a href="#" class="brand">
+      <svg viewBox="0 0 100 80" fill="none" stroke-width="4" stroke-linecap="round">
         <path d="M 45 42 C 45 22, 60 12, 75 16 C 85 19, 90 28, 88 40" stroke-width="3" />
         <path d="M 38 28 C 30 20, 22 22, 20 28" stroke-width="2.5" />
         <path d="M 38 28 C 45 20, 52 22, 54 28" stroke-width="2.5" />
         <path d="M 38 28 C 36 38, 28 50, 24 56 C 20 62, 26 68, 34 66 C 42 64, 48 54, 58 46 C 68 38, 76 40, 77 48 C 78 54, 72 58, 68 60" stroke-width="3.5" />
         <path d="M 70 50 C 75 58, 84 62, 92 54" stroke-width="2.8" />
       </svg>
-      <span class="brand-name">Lucent Tide</span>
+      Lucent Tide
     </a>
 
-    <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="google-rating-pill">
-      <span>★ 5.0 Google</span>
+    <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="google-pill">
+      ★ 5.0 Google
     </a>
   </header>
 
   <section class="hero">
-    <video 
-      class="hero-video-bg" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      webkit-playsinline 
-      preload="auto"
-      id="heroWaterVideo"
-    >
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-sun-setting-over-the-ocean-waves-41505-large.mp4" type="video/mp4" />
     </video>
-    <div class="hero-gradient-scrim"></div>
+    <div class="hero-scrim"></div>
 
     <div class="hero-content">
-      <div class="badge-tag">Sand Key Waterfront &bull; Clearwater Beach</div>
+      <div class="badge">Sand Key Waterfront &bull; Clearwater Beach</div>
       <h1>Morning Starts on the Water</h1>
       <p>Artisanal espresso, slow cold-brews, and pure Rishi loose-leaf teas served waterfront at Sand Key.</p>
       
-      <div class="hero-actions">
+      <div class="hero-btns">
         <a href="#menu" class="btn-slate-solid">Explore Menu</a>
         <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="btn-slate-glass">
           Get Directions
@@ -472,10 +417,8 @@
 
     <div class="reviews-slider">
       <div class="review-bubble">
-        <div>
-          <div class="review-stars">★★★★★</div>
-          <p>“The waterfront patio here is everything you want in a Florida morning. The nitro cold brew is velvety and ice-cold right on the water!”</p>
-        </div>
+        <div class="review-stars">★★★★★</div>
+        <p>“The waterfront patio here is everything you want in a Florida morning. The nitro cold brew is velvety and ice-cold right on the water!”</p>
         <div class="reviewer-row">
           <div class="reviewer-circle">MK</div>
           <div class="reviewer-text">
@@ -486,10 +429,8 @@
       </div>
 
       <div class="review-bubble">
-        <div>
-          <div class="review-stars">★★★★★</div>
-          <p>“Obsessed with their Rishi tea lineup! The iced Sparkling Blueberry Rooibos and Matcha Maca Latte are out of this world.”</p>
-        </div>
+        <div class="review-stars">★★★★★</div>
+        <p>“Obsessed with their Rishi tea lineup! The iced Sparkling Blueberry Rooibos and Matcha Maca Latte are out of this world.”</p>
         <div class="reviewer-row">
           <div class="reviewer-circle">SL</div>
           <div class="reviewer-text">
@@ -500,10 +441,8 @@
       </div>
 
       <div class="review-bubble">
-        <div>
-          <div class="review-stars">★★★★★</div>
-          <p>“The owner was so welcoming and genuinely passionate about roast quality. Brought home a branded camp mug!”</p>
-        </div>
+        <div class="review-stars">★★★★★</div>
+        <p>“The owner was so welcoming and genuinely passionate about roast quality. Brought home a branded camp mug!”</p>
         <div class="reviewer-row">
           <div class="reviewer-circle">DJ</div>
           <div class="reviewer-text">
@@ -514,8 +453,8 @@
       </div>
     </div>
 
-    <div class="google-direct-actions">
-      <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="btn-google-direct">
+    <div class="google-actions">
+      <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="btn-google">
         Open on Google Maps
       </a>
       <a href="https://search.google.com/local/writereview?placeid=ChIJr89qWk3xw4gRJiSAlVJzQRc" target="_blank" rel="noopener noreferrer" class="btn-google-outline">
@@ -553,7 +492,7 @@
 
     <div class="syrup-wrap">
       <h4>House Syrups & Flavors</h4>
-      <p>Custom flavor additions for hot and iced beverages.</p>
+      <p>Custom additions for hot and iced beverages.</p>
       <div class="syrup-grid">
         <span class="syrup-pill">Almond*</span>
         <span class="syrup-pill">Blackberry</span>
@@ -571,9 +510,9 @@
     </div>
   </section>
 
-  <div style="height: 90px;"></div>
+  <div style="height: 80px;"></div>
 
-  <div class="bottom-mobile-bar">
+  <div class="bottom-bar">
     <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="bar-btn-solid">
       Directions
     </a>
@@ -582,19 +521,5 @@
     </a>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const v = document.getElementById("heroWaterVideo");
-      if (v) {
-        v.muted = true;
-        const playPromise = v.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            document.body.addEventListener("touchstart", () => v.play(), { once: true });
-          });
-        }
-      }
-    });
-  </script>
 </body>
 </html>
