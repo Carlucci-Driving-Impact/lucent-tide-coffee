@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Lucent Tide | Coffee + Tea | Clearwater Beach, FL</title>
+  <title>Lucent Tide | Waterfront Coffee + Tea | Clearwater Beach, FL</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,14 @@
       --dark-slate-blue: #1E3338;
       --slate-blue: #32555C;
       --slate-blue-light: #4E7780;
-      --slate-soft-border: rgba(50, 85, 92, 0.18);
+      --slate-soft-border: rgba(50, 85, 92, 0.2);
       --slate-pill-bg: #EAF1F3;
-      --page-bg: #F7FAF9;
+      --page-bg: #F5F8F8;
       --card-white: #FFFFFF;
       --text-main: #18282B;
       --text-muted: #5C7479;
-      --shadow: 0 4px 18px rgba(30, 51, 56, 0.08);
+      --shadow-sm: 0 4px 18px rgba(30, 51, 56, 0.08);
+      --shadow-md: 0 10px 30px rgba(30, 51, 56, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,15 +30,15 @@
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Clean Slate Header */
     .header {
       position: sticky;
       top: 0;
       z-index: 100;
       background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--slate-soft-border);
       padding: 0.9rem 1.4rem;
       display: flex;
@@ -69,15 +70,15 @@
       text-decoration: none;
     }
 
-    /* Living Hero with Reliable Mobile Video Loop */
+    /* Living Hero with Sunrise Video Backdrop */
     .hero {
       position: relative;
-      height: 70svh;
-      min-height: 480px;
+      height: 75svh;
+      min-height: 500px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 1.5rem 3.5rem;
+      padding: 3rem 1.5rem 4rem;
       overflow: hidden;
       background-color: var(--dark-slate-blue);
     }
@@ -93,43 +94,45 @@
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(30, 51, 56, 0.2) 0%,
-        rgba(30, 51, 56, 0.6) 55%,
+        rgba(30, 51, 56, 0.25) 0%,
+        rgba(30, 51, 56, 0.55) 50%,
         rgba(30, 51, 56, 0.92) 100%
       );
       z-index: 2;
     }
-    .hero-content {
+    .hero-inner {
       position: relative;
       z-index: 3;
-      max-width: 600px;
+      max-width: 640px;
       color: #FFFFFF;
     }
     .badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       color: #FFFFFF;
-      padding: 0.3rem 0.85rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 40px;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       margin-bottom: 0.8rem;
+      backdrop-filter: blur(8px);
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 7vw, 3.6rem);
+      font-size: clamp(2.3rem, 7vw, 3.8rem);
       line-height: 1.15;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
       font-weight: 400;
     }
     .hero p {
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.05rem;
+      margin-bottom: 1.8rem;
       font-weight: 300;
+      max-width: 520px;
     }
     .hero-btns {
       display: flex;
@@ -139,30 +142,30 @@
     .btn-slate-solid {
       background: var(--dark-slate-blue);
       color: #FFFFFF;
-      padding: 0.85rem 1.5rem;
+      padding: 0.85rem 1.6rem;
       border-radius: 40px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.92rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     .btn-slate-glass {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       color: #FFFFFF;
-      padding: 0.85rem 1.5rem;
+      padding: 0.85rem 1.6rem;
       border-radius: 40px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       backdrop-filter: blur(8px);
     }
 
-    /* Google Reviews Section */
-    .reviews-section {
+    /* Photo Showcase */
+    .gallery-section {
       padding: 3.5rem 1.3rem;
-      background: #FFFFFF;
-      border-bottom: 1px solid var(--slate-soft-border);
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .section-head {
       text-align: center;
@@ -170,15 +173,54 @@
     }
     .section-head h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       color: var(--dark-slate-blue);
       margin-bottom: 0.3rem;
     }
     .section-head p {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .photo-card {
+      background: var(--card-white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--slate-soft-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-desc {
+      padding: 1.2rem;
+    }
+    .photo-desc h4 {
+      color: var(--dark-slate-blue);
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+    .photo-desc span {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      padding: 3.5rem 1.3rem;
+      background: var(--card-white);
+      border-top: 1px solid var(--slate-soft-border);
+      border-bottom: 1px solid var(--slate-soft-border);
+    }
     .reviews-slider {
       display: flex;
       gap: 1.2rem;
@@ -187,9 +229,10 @@
       padding-bottom: 1rem;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      max-width: 1040px;
+      margin: 0 auto;
     }
     .reviews-slider::-webkit-scrollbar { display: none; }
-
     .review-bubble {
       flex: 0 0 85%;
       max-width: 360px;
@@ -198,7 +241,7 @@
       border: 1px solid var(--slate-soft-border);
       border-radius: 18px;
       padding: 1.6rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
     }
     .review-stars {
       color: var(--dark-slate-blue);
@@ -243,7 +286,7 @@
     .btn-google {
       background: var(--slate-blue);
       color: #FFFFFF;
-      padding: 0.65rem 1.3rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 40px;
       text-decoration: none;
       font-size: 0.85rem;
@@ -252,7 +295,7 @@
     .btn-google-outline {
       border: 1px solid var(--slate-blue);
       color: var(--slate-blue);
-      padding: 0.65rem 1.3rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 40px;
       text-decoration: none;
       font-size: 0.85rem;
@@ -271,7 +314,7 @@
       border-radius: 18px;
       padding: 1.8rem;
       margin-bottom: 1.8rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
     }
     .menu-card h3 {
       font-family: 'Playfair Display', serif;
@@ -395,7 +438,7 @@
     </video>
     <div class="hero-scrim"></div>
 
-    <div class="hero-content">
+    <div class="hero-inner">
       <div class="badge">Sand Key Waterfront &bull; Clearwater Beach</div>
       <h1>Morning Starts on the Water</h1>
       <p>Artisanal espresso, slow cold-brews, and pure Rishi loose-leaf teas served waterfront at Sand Key.</p>
@@ -405,6 +448,40 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Lucent+Tide+Coffee+%2B+Tea+1261+Gulf+Blvd+Clearwater+FL" target="_blank" rel="noopener noreferrer" class="btn-slate-glass">
           Get Directions
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO SHOWCASE: Direct Photo Gallery Cards -->
+  <section class="gallery-section">
+    <div class="section-head">
+      <h2>The Lucent Tide Atmosphere</h2>
+      <p>Fresh waterfront air, artisanal roasts, and custom-crafted merchandise.</p>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Lucent Tide Morning Waterfront Coffee" />
+        <div class="photo-desc">
+          <h4>Waterfront Morning Brew</h4>
+          <span>Ceramic roasts on the Sand Key Boardwalk</span>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80" alt="Layered Artisan Iced Coffee" />
+        <div class="photo-desc">
+          <h4>Layered Pumpkin Macchiato</h4>
+          <span>Artisan pumpkin & double espresso over crystal ice</span>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80" alt="Waterfront Calm Sunrise Tide" />
+        <div class="photo-desc">
+          <h4>Golden Hour Tide</h4>
+          <span>Front-row seats to the calm Florida morning tide</span>
+        </div>
       </div>
     </div>
   </section>
