@@ -484,3 +484,15 @@ section{scroll-margin-top:92px}
   .pick>span::after{top:50%;transform:translateY(-50%);right:1rem}
   .f-foot .btn{width:100%}
 }
+/* v4.1 subscribe quick button */
+#subscribe{scroll-margin-top:100px}
+.btn-sub{background:#fff;color:var(--dsb);border-color:#fff}
+.btn-sub:hover{background:var(--mist)}
+.top.solid .btn-sub{background:var(--dsb);color:#fff;border-color:var(--dsb)}
+.top.solid .btn-sub:hover{background:var(--sb)}
+.nav a.btn-sub{opacity:1}
+@media (max-width:560px){
+  .nav{gap:.5rem}
+  .nav .btn{min-height:42px;padding:.55rem 1rem;font-size:.84rem}
+  .nav .nav-dir{display:none}
+}

@@ -132,8 +132,8 @@
   $('#lbx').onclick = close; lb.addEventListener('click', e => { if (e.target === lb) close(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
-  /* ---------- Pre-register ---------- */
-  const form = $('#prereg');
+  /* ---------- Community subscribe ---------- */
+  const form = $('#subscribe');
   if (form) {
     const SB = 'https://dagxkyumnkprlzvqzsls.supabase.co/rest/v1/signups';
     const KEY = 'sb_publishable_8QBYGSdo4-cAK8ALvTb0qA_Hcfw2pXh';
@@ -148,14 +148,14 @@
       if (f.company.value || Date.now() - t0 < 1500) { location.href = 'thanks.html'; return; }
       const interests = [...form.querySelectorAll('input[name=interests]:checked')].map(i => i.value);
       const body = { name: f.name.value.trim() || null, email: em, phone: f.phone.value.trim() || null, interests, suggestions: f.suggestions.value.trim() || null, wants_updates: f.wants_updates.checked, source: 'website' };
-      btn.disabled = true; btn.textContent = 'Saving...';
+      btn.disabled = true; btn.textContent = 'Subscribing...';
       try {
         const r = await fetch(SB, { method: 'POST', headers: { apikey: KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' }, body: JSON.stringify(body) });
         if (!r.ok) throw new Error(r.status);
         try { sessionStorage.setItem('lt_prereg', JSON.stringify({ name: body.name, interests })); } catch (_) {}
         location.href = 'thanks.html';
       } catch (err) {
-        btn.disabled = false; btn.textContent = 'Pre-register';
+        btn.disabled = false; btn.textContent = 'Subscribe';
         msg.textContent = 'Something went wrong saving that. Please try again, or call (425) 422-2495.';
       }
     });
