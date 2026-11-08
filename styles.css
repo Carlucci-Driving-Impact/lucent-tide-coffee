@@ -507,3 +507,8 @@ section{scroll-margin-top:92px}
 .foot .lockup{display:block;margin-inline:auto}
 .foot>div{width:100%}
 .legal{justify-content:center;text-align:center;flex-wrap:wrap;column-gap:1.5rem}
+/* v4.4 header logo appears only after scrolling past hero */
+.top .brand{transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.top:not(.solid) .brand{opacity:0;transform:translateY(-6px);pointer-events:none}
+.status-pill{white-space:nowrap}
+@media (max-width:1024px){.nav .status-pill{display:none}}
