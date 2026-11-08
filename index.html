@@ -15,7 +15,7 @@
 <link rel="preload" href="fonts/boska-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css?v=1794135322">
+<link rel="stylesheet" href="styles.css?v=1794136627">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Lucent Tide Coffee & Tea","image":"assets/og.jpg","telephone":"+1-425-422-2495","priceRange":"$","servesCuisine":["Coffee","Tea","Bakery"],
 "address":{"@type":"PostalAddress","streetAddress":"1261 Gulf Blvd #109","addressLocality":"Clearwater","addressRegion":"FL","postalCode":"33767","addressCountry":"US"},
@@ -46,8 +46,8 @@
 <!-- HERO -->
 <section class="hero" id="hero" aria-label="Lucent Tide on the water">
   <canvas id="tide" aria-hidden="true"></canvas>
-  <video id="heroVideo" muted playsinline webkit-playsinline loop autoplay preload="auto" aria-hidden="true" disablepictureinpicture>
-    
+  <video id="heroVideo" poster="assets/hero-poster.jpg" muted playsinline webkit-playsinline loop autoplay preload="auto" aria-hidden="true" disablepictureinpicture>
+    <source src="assets/hero-portrait.mp4" type="video/mp4" media="(orientation: portrait) and (max-width: 900px)"><source src="assets/hero.mp4" type="video/mp4">
   </video>
   <div class="scrim"></div>
   <div class="hero-inner">
@@ -89,9 +89,26 @@
       </div>
     </div>
     <figure class="rev">
-      <picture><source srcset="assets/sign-now-open.webp" type="image/webp"><img src="assets/sign-now-open.jpg" alt="The Lucent Tide Coffee + Tea Now Open sign outside the café on Gulf Blvd" loading="lazy" width="768" height="1020"></picture>
-      <div class="float"><span class="eyebrow">Now open</span><p>Every day, 6 AM to 4 PM</p></div>
+      <picture><source srcset="assets/mug-sunrise.webp" type="image/webp"><img src="assets/mug-sunrise.jpg" alt="A Lucent Tide Coffee + Tea mug on the dock railing as the sun rises over the water" loading="lazy" width="768" height="1020"></picture>
+      <figcaption class="float"><span class="eyebrow">Now open</span><p>Every day, 6 AM to 4 PM</p></figcaption>
     </figure>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gal-sec" id="mornings" aria-label="Mornings at Lucent Tide">
+  <div class="wrap">
+    <div class="head rev">
+      <span class="eyebrow">Mornings on the water</span>
+      <h2>Coffee with a <em>view like this.</em></h2>
+    </div>
+    <div class="gal">
+      <button class="board g-wide rev" data-full="assets/sunrise-wide.jpg" data-cap="Sunrise over the water at Sand Key"><picture><source srcset="assets/sunrise-wide.webp" type="image/webp"><img src="assets/sunrise-wide.jpg" alt="Sunrise over the water at Sand Key, the sun just above the horizon" loading="lazy" width="1020" height="768"></picture></button>
+      <button class="board g-c rev" data-full="assets/sign-now-open.jpg" data-cap="The Now Open sign on Gulf Blvd"><picture><source srcset="assets/sign-now-open.webp" type="image/webp"><img src="assets/sign-now-open.jpg" alt="The Lucent Tide Coffee + Tea Now Open sign outside the café on Gulf Blvd" loading="lazy" width="768" height="1020"></picture></button>
+      <button class="board g-a rev" data-full="assets/mug-dock.jpg" data-cap="The Lucent Tide mug on the dock"><picture><source srcset="assets/mug-dock.webp" type="image/webp"><img src="assets/mug-dock.jpg" alt="Close-up of a white Lucent Tide Coffee + Tea mug on the dock at sunrise" loading="lazy" width="1020" height="768"></picture></button>
+      <button class="board g-b rev" data-full="assets/mug-golden.jpg" data-cap="Golden hour with a Lucent Tide mug"><picture><source srcset="assets/mug-golden.webp" type="image/webp"><img src="assets/mug-golden.jpg" alt="Lucent Tide mug on the dock with the sun reflecting across the water" loading="lazy" width="1020" height="768"></picture></button>
+
+    </div>
   </div>
 </section>
 
@@ -189,6 +206,20 @@
         <picture><source srcset="assets/board-syrups.webp" type="image/webp"><img src="assets/board-syrups.jpg" alt="Photo of the Lucent Tide flavored syrups, sauces and sizes board" loading="lazy" width="1020" height="725"></picture>
         <span class="cap"><span>Flavors + sizes board</span><span>Tap to enlarge</span></span>
       </button>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL -->
+<section class="season pad" id="seasonal">
+  <div class="wrap season-grid">
+    <button class="board season-img rev" data-full="assets/pumpkin-macchiato.jpg" data-cap="Pumpkin Macchiato"><picture><source srcset="assets/pumpkin-macchiato.webp" type="image/webp"><img src="assets/pumpkin-macchiato.jpg" alt="Pumpkin Macchiato poster: an iced layered macchiato in a tall glass beside small pumpkins" loading="lazy" width="768" height="1020"></picture></button>
+    <div class="copy rev">
+      <span class="eyebrow">Seasonal favorite</span>
+      <h2>Pumpkin <em>Macchiato</em></h2>
+      <p class="lede">Fall on the Gulf, poured over ice. Espresso layered over cold milk with pumpkin spice, the way only a beach town does autumn.</p>
+      <p class="note-s">Seasonal and available while it lasts. Ask at the counter for hot or iced.</p>
+      <a class="btn btn-dark" href="#menu">See the full menu</a>
     </div>
   </div>
 </section>
@@ -354,6 +385,6 @@
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo"><button id="lbx" aria-label="Close">×</button><img id="lbimg" alt=""><p id="lbcap"></p></div>
 
-<script src="app.js?v=1794135322" defer></script>
+<script src="app.js?v=1794136627" defer></script>
 </body>
 </html>
