@@ -15,7 +15,7 @@
 <link rel="preload" href="fonts/boska-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css?v=1794140924">
+<link rel="stylesheet" href="styles.css?v=1794141728">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Lucent Tide Coffee & Tea","image":"assets/og.jpg","telephone":"+1-425-422-2495","priceRange":"$","servesCuisine":["Coffee","Tea","Bakery"],
 "address":{"@type":"PostalAddress","streetAddress":"1261 Gulf Blvd #109","addressLocality":"Clearwater","addressRegion":"FL","postalCode":"33767","addressCountry":"US"},
@@ -136,6 +136,21 @@
   </div>
 </section>
 
+<!-- INSIDE -->
+<section class="inside pad" id="inside">
+  <div class="wrap">
+    <div class="head rev">
+      <span class="eyebrow">Inside the café</span>
+      <h2>Bright, easy and <em>made to order</em></h2>
+      <p class="lede">Order at the counter, watch your drink come off the espresso machine, and pick it up under the Pick-Up Here sign.</p>
+    </div>
+    <div class="inside-grid">
+      <button class="board ig rev" data-full="assets/inside-counter.jpg" data-cap="The espresso counter and pick-up"><picture><source srcset="assets/inside-counter.webp" type="image/webp"><img src="assets/inside-counter.jpg" alt="Inside Lucent Tide: the espresso machine and counter, the bakery case and the Pick-Up Here sign" loading="lazy" width="960" height="720"></picture></button>
+      <button class="board ig rev" data-full="assets/inside-syrups.jpg" data-cap="The syrup wall and coffee grinder"><picture><source srcset="assets/inside-syrups.webp" type="image/webp"><img src="assets/inside-syrups.jpg" alt="Inside Lucent Tide: shelves of flavored syrups on the wall, a coffee grinder full of beans and the Pumpkin Macchiato poster" loading="lazy" width="1020" height="768"></picture></button>
+    </div>
+  </div>
+</section>
+
 <!-- SEASONAL -->
 <section class="season pad" id="seasonal">
   <div class="wrap season-grid">
@@ -154,7 +169,10 @@
 <section class="bake pad" id="bakery">
   <div class="wrap">
     <div class="bake-feature">
-      <button class="bake-img rev" data-full="assets/bakery-case.jpg" data-cap="Fresh from the bakery case"><picture><source srcset="assets/bakery-case.webp" type="image/webp"><img src="assets/bakery-case.jpg" alt="The Lucent Tide bakery case with glazed apple fritters, sprinkle donuts, chocolate frosted and powdered donuts, and croissants" loading="lazy" width="768" height="1020"></picture></button>
+      <div class="bake-pics">
+        <button class="bake-img rev" data-full="assets/bakery-case.jpg" data-cap="Fresh from the bakery case"><picture><source srcset="assets/bakery-case.webp" type="image/webp"><img src="assets/bakery-case.jpg" alt="The Lucent Tide bakery case with glazed apple fritters, sprinkle donuts, chocolate frosted and powdered donuts, and croissants" loading="lazy" width="768" height="1020"></picture></button>
+        <button class="bake-img2 rev" data-full="assets/bakery-case2.jpg" data-cap="Croissants, pastries and muffins"><picture><source srcset="assets/bakery-case2.webp" type="image/webp"><img src="assets/bakery-case2.jpg" alt="Another angle of the Lucent Tide bakery case with croissants, powdered pastries, donuts, an apple fritter and muffins" loading="lazy" width="1020" height="698"></picture></button>
+      </div>
       <div class="copy rev">
         <span class="eyebrow">From the bakery case</span>
         <h2>Fresh every morning, <em>served warm</em></h2>
@@ -165,6 +183,7 @@
           <li><b>Chocolate donuts</b><span>Chocolate frosted and chocolate drizzle</span></li>
           <li><b>Powdered and glazed</b><span>The classics</span></li>
           <li><b>Croissants</b><span>Flaky and buttery</span></li>
+          <li><b>Muffins</b><span>Big, bakery-style muffins</span></li>
           <li><b>Orange cranberry and maple cake</b><span>Guest favorites from Google reviews</span></li>
         </ul>
         <p class="note-s">Selection changes daily. Ask at the counter for what's warm.</p>
@@ -244,10 +263,32 @@
         <p>Explore the shoreline at your own pace and watch for marine life along the way.</p>
       </article>
     </div>
-    <div class="soon-cta rev">
-      <p>Want to be first to know?</p>
-      <a class="btn btn-dark" href="tel:+14254222495">Call (425) 422-2495</a>
-    </div>
+    <form class="prereg rev" id="prereg" novalidate>
+      <div class="prereg-head">
+        <span class="eyebrow">Pre-register</span>
+        <h3>Be first on the water</h3>
+        <p>Tell us what you're excited about and we'll reach out as soon as sign-ups open.</p>
+      </div>
+      <div class="f-row">
+        <label class="f"><span>Name</span><input name="name" autocomplete="name" maxlength="120" placeholder="Your name"></label>
+        <label class="f"><span>Email <i>required</i></span><input name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
+      </div>
+      <label class="f"><span>Phone <i>optional</i></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" placeholder="(727) 555-0123"></label>
+      <fieldset class="f-int">
+        <legend>I'm interested in</legend>
+        <label class="pick"><input type="checkbox" name="interests" value="yoga"><span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="9" r="3.2"/><path d="M24 13v12"/><path d="M24 17l-9 5M24 17l9 5"/><path d="M24 25l-8 9h16l-8-9"/><path d="M6 41c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><b>Waterfront Yoga</b></span></label>
+        <label class="pick"><input type="checkbox" name="interests" value="paddleboard"><span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="8" r="3"/><path d="M22 11l1 11-4 9M23 22l5 9"/><path d="M30 6l-4 30"/><path d="M8 34h32c-2 3-6 4-10 4H16c-4 0-7-1-8-4z"/><path d="M4 43c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><b>Paddle Board Rentals</b></span></label>
+        <label class="pick"><input type="checkbox" name="interests" value="kayak"><span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="15" r="3"/><path d="M24 18v8"/><path d="M10 14l28 16"/><path d="M8 12l3 3M37 29l3 3"/><path d="M5 31c6 4 32 4 38 0-6-3-32-3-38 0z"/><path d="M4 41c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/></svg><b>Kayak Rentals</b></span></label>
+      </fieldset>
+      <label class="f"><span>Suggestions <i>optional</i></span><textarea name="suggestions" rows="4" maxlength="2000" placeholder="Class times you'd love, drinks you want to see, anything at all"></textarea></label>
+      <label class="check"><input type="checkbox" name="wants_updates" checked><span>Email me Lucent Tide news and updates</span></label>
+      <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="f-foot">
+        <button class="btn btn-dark" type="submit" id="preregBtn">Pre-register</button>
+        <p class="f-msg" id="preregMsg" role="status" aria-live="polite"></p>
+      </div>
+      <p class="f-fine">We only use your info to share Lucent Tide updates. No spam, ever.</p>
+    </form>
   </div>
 </section>
 
@@ -342,6 +383,6 @@
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo"><button id="lbx" aria-label="Close">×</button><img id="lbimg" alt=""><p id="lbcap"></p></div>
 
-<script src="app.js?v=1794140924" defer></script>
+<script src="app.js?v=1794141728" defer></script>
 </body>
 </html>
