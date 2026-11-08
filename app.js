@@ -88,21 +88,6 @@
   $('#hours').innerHTML = order.map(d => `<tr class="${d === et.getDay() ? 'today' : ''}"><td>${days[d]}</td><td>6:00 AM – 4:00 PM</td></tr>`).join('');
   $('#yr').textContent = et.getFullYear();
 
-  /* ---------- Syrups ---------- */
-  const syr = 'Almond*,Blackberry,Blood Orange,Blueberry,Brown Butter Toffee,Butter Pecan,Caramel*,Cinnamon,Coconut*,Cookie Butter,Cucumber,Dragon Fruit,Grapefruit,Green Apple,Guava,Hazelnut*,Hibiscus,Irish Cream*,Lavender,Lemon,Lime,Lychee,Mango*,Orange,Peppermint,Pistachio,Praline,Passion Fruit,Peach*,Pineapple,Pomegranate*,Raspberry*,Strawberry*,Toasted Marshmallow,Toffee Nut,Vanilla*,Watermelon'.split(',');
-  $('#syrups').innerHTML = syr.map(s => s.endsWith('*') ? `<span class="chip">${s.slice(0, -1)} <sup>SF</sup></span>` : `<span class="chip">${s}</span>`).join('');
-
-  /* ---------- Tabs ---------- */
-  const tabs = $$('.tab');
-  tabs.forEach(tb => tb.addEventListener('click', () => {
-    tabs.forEach(x => x.setAttribute('aria-selected', x === tb));
-    $$('.panel').forEach(p => p.classList.toggle('on', p.id === tb.getAttribute('aria-controls')));
-  }));
-  $('.tabs').addEventListener('keydown', e => {
-    const i = tabs.indexOf(document.activeElement); if (i < 0) return;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; n.focus(); n.click(); }
-  });
-
   /* ---------- Reviews slider ---------- */
   const track = $('#track'), cards = $$('.rv', track), dots = $('#dots');
   dots.innerHTML = cards.map(() => '<i></i>').join('');
