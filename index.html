@@ -15,7 +15,7 @@
 <link rel="preload" href="fonts/boska-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
-<link rel="stylesheet" href="styles.css?v=1794140794">
+<link rel="stylesheet" href="styles.css?v=1794140924">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Lucent Tide Coffee & Tea","image":"assets/og.jpg","telephone":"+1-425-422-2495","priceRange":"$","servesCuisine":["Coffee","Tea","Bakery"],
 "address":{"@type":"PostalAddress","streetAddress":"1261 Gulf Blvd #109","addressLocality":"Clearwater","addressRegion":"FL","postalCode":"33767","addressCountry":"US"},
@@ -153,30 +153,22 @@
 <!-- BAKERY -->
 <section class="bake pad" id="bakery">
   <div class="wrap">
-    <div class="head center rev">
-      <span class="eyebrow">From the bakery case</span>
-      <h2>Baked here, served warm</h2>
-      <p class="lede">Guests keep coming back for the homemade baked goods, made by the owner herself.</p>
-    </div>
-    <div class="bake-grid">
-      <article class="bake-card rev">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 30h32v8H8z"/><path d="M10 30c0-8 6-14 14-14s14 6 14 14"/><circle cx="18" cy="23" r="1.4"/><circle cx="26" cy="21" r="1.4"/><circle cx="31" cy="25" r="1.4"/></svg>
-        <h3>Orange Cranberry Cake</h3>
-        <p>Bright citrus and tart cranberry, a guest favorite with a cortado.</p>
-        <span class="src">Mentioned in Google reviews</span>
-      </article>
-      <article class="bake-card rev">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 32h32v6H8z"/><path d="M8 32c2-10 8-16 16-16s14 6 16 16"/><path d="M18 18c1 4 3 6 6 6s5-2 6-6"/></svg>
-        <h3>Maple Cake</h3>
-        <p>Soft, warm and lightly sweet. Pairs well with drip coffee or a chai latte.</p>
-        <span class="src">Mentioned in Google reviews</span>
-      </article>
-      <article class="bake-card rev">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 22h24v10a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8z"/><path d="M34 25h3a4 4 0 0 1 0 8h-3"/><path d="M17 8c-2 3 2 5 0 8M24 8c-2 3 2 5 0 8"/></svg>
-        <h3>Grab-and-go</h3>
-        <p>Heading to the beach? Grab a pastry and an iced drink on your way across Gulf Blvd.</p>
-        <span class="src">From Lucent Tide’s Google profile</span>
-      </article>
+    <div class="bake-feature">
+      <button class="bake-img rev" data-full="assets/bakery-case.jpg" data-cap="Fresh from the bakery case"><picture><source srcset="assets/bakery-case.webp" type="image/webp"><img src="assets/bakery-case.jpg" alt="The Lucent Tide bakery case with glazed apple fritters, sprinkle donuts, chocolate frosted and powdered donuts, and croissants" loading="lazy" width="768" height="1020"></picture></button>
+      <div class="copy rev">
+        <span class="eyebrow">From the bakery case</span>
+        <h2>Fresh every morning, <em>served warm</em></h2>
+        <p class="lede">Guests keep coming back for the homemade baked goods, made by the owner herself. Here's what fills the case.</p>
+        <ul class="bake-list">
+          <li><b>Apple fritters</b><span>Big, glazed and golden</span></li>
+          <li><b>Sprinkle donuts</b><span>Vanilla frosted with rainbow sprinkles</span></li>
+          <li><b>Chocolate donuts</b><span>Chocolate frosted and chocolate drizzle</span></li>
+          <li><b>Powdered and glazed</b><span>The classics</span></li>
+          <li><b>Croissants</b><span>Flaky and buttery</span></li>
+          <li><b>Orange cranberry and maple cake</b><span>Guest favorites from Google reviews</span></li>
+        </ul>
+        <p class="note-s">Selection changes daily. Ask at the counter for what's warm.</p>
+      </div>
     </div>
     <figure class="gg rev">
       <button class="gg-img" data-full="assets/grab-and-go.jpg" data-cap="Grab-and-go cooler and snack shelves"><picture><source srcset="assets/grab-and-go.webp" type="image/webp"><img src="assets/grab-and-go.jpg" alt="The Lucent Tide grab-and-go cooler stocked with cold drinks and water, with snack shelves above" loading="lazy" width="1020" height="768"></picture></button>
@@ -350,6 +342,6 @@
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo"><button id="lbx" aria-label="Close">×</button><img id="lbimg" alt=""><p id="lbcap"></p></div>
 
-<script src="app.js?v=1794140794" defer></script>
+<script src="app.js?v=1794140924" defer></script>
 </body>
 </html>

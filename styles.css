@@ -419,3 +419,17 @@ section{scroll-margin-top:92px}
 @media (min-width:600px) and (max-width:900px){.soon-grid{grid-template-columns:1fr 1fr}.soon-card:nth-child(3){grid-column:1/-1}}
 .soon-card svg{width:76px;height:76px;padding:14px;border-radius:50%;background:var(--mist);color:var(--dsb);margin-top:.4rem}
 .soon-card{align-items:flex-start}
+/* v3.1 bakery feature */
+.bake-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5.5rem);align-items:center}
+.bake-img{padding:0;border:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;display:block;background:var(--mist)}
+.bake-img img{display:block;width:100%;height:auto;aspect-ratio:768/1020;object-fit:cover;transition:transform .8s var(--ease)}
+.bake-img:hover img{transform:scale(1.03)}
+.bake-feature .copy{display:flex;flex-direction:column;gap:1.2rem}
+.bake-feature h2 em{font-style:italic;color:var(--sb)}
+.bake-list{list-style:none;margin:.4rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}
+.bake-list li{display:flex;flex-direction:column;gap:.2rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.bake-list b{font-family:var(--font-display);font-weight:500;font-size:1.3rem;color:var(--dsb);line-height:1.2}
+.bake-list span{font-size:.88rem;color:var(--muted)}
+.bake .gg{margin-top:clamp(2.5rem,6vw,4.5rem)}
+@media (max-width:900px){.bake-feature{grid-template-columns:1fr}.bake-img{max-width:520px}}
+@media (max-width:560px){.bake-list{grid-template-columns:1fr}}
