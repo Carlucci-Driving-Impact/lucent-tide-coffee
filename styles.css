@@ -502,3 +502,8 @@ section{scroll-margin-top:92px}
 @media (max-width:760px){.nav .nav-menu{display:inline-flex}}
 /* v4.2 gallery now follows the dark menu */
 .gal-sec{padding-top:clamp(4rem,8vw,7rem)}
+/* v4.3 centered footer */
+.foot{text-align:center;justify-items:center}
+.foot .lockup{display:block;margin-inline:auto}
+.foot>div{width:100%}
+.legal{justify-content:center;text-align:center;flex-wrap:wrap;column-gap:1.5rem}
