@@ -496,3 +496,9 @@ section{scroll-margin-top:92px}
   .nav .btn{min-height:42px;padding:.55rem 1rem;font-size:.84rem}
   .nav .nav-dir{display:none}
 }
+/* v4.2 quick menu button (shown when text links collapse) */
+.nav .nav-menu{display:none}
+#menu{scroll-margin-top:70px}
+@media (max-width:760px){.nav .nav-menu{display:inline-flex}}
+/* v4.2 gallery now follows the dark menu */
+.gal-sec{padding-top:clamp(4rem,8vw,7rem)}
