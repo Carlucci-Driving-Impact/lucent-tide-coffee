@@ -360,3 +360,26 @@ section{scroll-margin-top:92px}
 }
 @media (max-width:560px){.intro figure .float{margin:.8rem 0 0}}
 .intro figure .float,.intro figure .float{position:static;left:auto;bottom:auto;inset:auto}
+/* v2.2 gallery: sunlit mug featured, sign uncropped */
+.gal{display:grid;grid-template-columns:1.7fr .72fr 1fr;grid-template-rows:none;gap:1rem;align-items:stretch}
+.gal .board{grid-column:auto!important;grid-row:auto!important;aspect-ratio:auto!important;min-height:0}
+.gal .g-sign{aspect-ratio:727/1020!important}
+.gal .g-sign img{object-fit:cover;object-position:50% 50%!important}
+.gal .g-mug img{object-position:50% 60%}
+@media (max-width:900px){
+  .gal{grid-template-columns:.72fr 1fr}
+  .gal .g-mug{grid-column:1/3!important;aspect-ratio:4/3!important}
+}
+.gal{grid-template-columns:1.333fr .713fr 1.05fr}
+.gal .g-mug,.gal .g-sun{position:relative}
+.gal .g-mug picture,.gal .g-sun picture{position:absolute;inset:0}
+@media (max-width:900px){
+  .gal{grid-template-columns:.713fr 1fr}
+  .gal .g-mug picture{position:static}
+}
+@media (min-width:901px){
+  .gal{grid-template-columns:1.333fr .713fr}
+  .gal .g-sun{grid-column:1/3!important;aspect-ratio:3/1!important}
+  .gal .g-sun picture{position:absolute;inset:0}
+  .gal .g-sun img{object-position:50% 55%}
+}
